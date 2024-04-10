@@ -1,6 +1,6 @@
 const e = {
     status: document.querySelector('header p'),
-    btn: document.querySelector('header input[type="button"][value="Search"]'),
+    btn: document.querySelector('header button'),
     txt: document.querySelector('header input[type="text"]'),
     out: document.querySelector('main > ul'),
     form: document.querySelector('form'),
@@ -41,7 +41,7 @@ async function get(url) {
     }).then((response) => {
         return response.json()
     }).catch(err => {
-        e.status.textContent = `Error, cannot find the pokemon: [${e.txt.value}]`
+        e.status.textContent = `Cannot find the pokemon: ${e.txt.value}`
     });
 }
 
@@ -56,13 +56,10 @@ async function pokeQuery(pkmn) {
 
     // get the first english entry, and remove any whitespace
     data.flavor = specificData[0].flavor_text.replace('', '');;
-    console.log(specificData)
+
     addCard(data)
 }
 
-e.btn.addEventListener('click', async () => {
-    await pokeQuery(e.txt.value.toLowerCase());
-})
 e.form.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     await pokeQuery(e.txt.value.toLowerCase());

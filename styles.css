@@ -26,6 +26,19 @@ header p {
   width: 100%;
 }
 
+#lucky {
+  transition: all 0.3s;
+  transform: none;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+#lucky:hover {
+  left: 10px;
+  top: -2px;
+  transform: scale(120%);
+}
+
 .pokemon {
   padding: 1rem;
   border: 1px solid #ccc;
