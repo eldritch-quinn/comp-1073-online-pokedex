@@ -48,6 +48,11 @@ async function get(url) {
 async function pokeQuery(pkmn) {
     let data = await get(`https://pokeapi.co/api/v2/pokemon/${pkmn}`);
 
+    // make a seperate get request that gets the species' flavor text entry object
+    // then filters it to find the one that is english.
+    let specificData = (await get(data.species.url)).flavor_text_entries.filter(function(itm){
+        return itm.language.name == 'en';
+    });
     console.log(specificData)
     addCard(data)
 }
