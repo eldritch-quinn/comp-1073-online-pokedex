@@ -73,6 +73,7 @@ e.lucky.addEventListener('click', async () => {
     await pokeQuery(Math.floor(Math.random() * 1025));
 })
 
-for (let i = 0; i < 12; i++) {
+for (let i = 0; i < 11; i++) {
     pokeQuery(Math.floor(Math.random() * 1025));
 }
+pokeQuery('ditto');
