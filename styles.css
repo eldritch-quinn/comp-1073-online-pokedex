@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+html {
+  font-family: "Inter", sans-serif;
+}
+
+body, header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3, ul, p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  margin-bottom: 3rem;
+}
+header p {
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.pokemon {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1.5rem;
+  width: 16rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "n i" "t t";
+}
+.pokemon > section {
+  grid-area: n;
+  padding: 0.5rem;
+}
+.pokemon > section h3, .pokemon > section > p {
+  margin-bottom: 0.2rem;
+}
+.pokemon > section ul {
+  width: 100%;
+  display: inline-flex;
+}
+.pokemon > section li {
+  border: 1px solid #ccc;
+  border-radius: 0.75rem;
+  padding: 1px 6px;
+  margin-right: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.pokemon > p {
+  grid-area: t;
+  padding: 0 0.5rem 0.5rem;
+}
+
+main > ul {
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+main div {
+  width: 96px;
+  max-width: 96px;
+  height: 96px;
+  max-height: 96px;
+  grid-area: i;
+}
+
+header p {
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+  main > ul {
+    justify-content: center;
+    width: 100%;
+  }
+}
