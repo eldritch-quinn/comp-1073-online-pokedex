@@ -25,7 +25,7 @@ function addCard(data) {
     </section>
     <div>
         <img src="${data.sprites.front_default}" alt="${data.species.name}" />
-    </div>`;
+    </div><p>${data.flavor}</p>`;
         
     newItem.innerHTML = pokeCardHTML;
 
@@ -53,6 +53,9 @@ async function pokeQuery(pkmn) {
     let specificData = (await get(data.species.url)).flavor_text_entries.filter(function(itm){
         return itm.language.name == 'en';
     });
+
+    // get the first english entry, and remove any whitespace
+    data.flavor = specificData[0].flavor_text.replace('', '');;
     console.log(specificData)
     addCard(data)
 }

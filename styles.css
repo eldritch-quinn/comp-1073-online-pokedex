@@ -31,8 +31,11 @@ header p {
   border: 1px solid #ccc;
   border-radius: 1.5rem;
   width: 16rem;
+  transition: top 0.3s;
+  top: 0;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-template-rows: min-content 1fr;
   grid-template-areas: "n i" "t t";
 }
 .pokemon > section {
@@ -62,8 +65,13 @@ header p {
   grid-area: t;
   padding: 0 0.5rem 0.5rem;
 }
+.pokemon:hover {
+  position: relative;
+  top: -5px;
+}
 
 main > ul {
+  gap: 0.5rem;
   width: 900px;
   display: flex;
   flex-direction: row;
@@ -81,7 +89,7 @@ header p {
   padding-bottom: 1rem;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 900px) {
   main > ul {
     justify-content: center;
     width: 100%;

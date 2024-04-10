@@ -20,14 +20,19 @@ header
         width: 100%
 
 .pokemon
+
     padding: 1rem
     border: 1px solid #ccc
     border-radius: 1.5rem
     width: 16rem
+
+    transition: top .3s
+    top: 0
     
 
     display: grid
     grid-template-columns: 2fr 1fr
+    grid-template-rows: min-content 1fr
     
 
     grid-template-areas: "n i" "t t"
@@ -58,9 +63,13 @@ header
         grid-area: t
         padding: 0 .5rem .5rem
 
+    &:hover
+        position: relative
+        top: -5px
 
 main
     > ul
+        gap: .5rem
         width: 900px
         // width: 100%
         display: flex
@@ -76,9 +85,7 @@ main
 
 header p
     padding-bottom: 1rem
-
-@media screen and ( max-width: 425px )
+@media screen and ( max-width: 900px )
     main > ul
         justify-content: center
         width: 100%
-    
