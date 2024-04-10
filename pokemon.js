@@ -39,9 +39,9 @@ async function get(url) {
         method: 'get',
         mode: 'cors'
     }).then((response) => {
-        return response.json()
+        return response.json();
     }).catch(err => {
-        e.status.textContent = `Cannot find the pokemon: ${e.txt.value}`
+        e.status.textContent = `Cannot find the pokemon: ${e.txt.value}`;
     });
 }
 
@@ -50,8 +50,12 @@ async function pokeQuery(pkmn) {
 
     // make a seperate get request that gets the species' flavor text entry object
     // then filters it to find the one that is english.
-    let specificData = (await get(data.species.url)).flavor_text_entries.filter(function(itm){
-        return itm.language.name == 'en';
+    let specificData = (
+        await get(data.species.url)
+    )
+    .flavor_text_entries
+    .filter((entry) => {
+        return entry.language.name == 'en';
     });
 
     // get the first english entry, and remove any whitespace
