@@ -14,20 +14,27 @@ function captialize(str) {
 function addCard(data) {
   //console.log(data)
   let newItem = document.createElement("li");
-  let pokeCardHTML = `<section>
-        <h3>${captialize(data.species.name)}</h3>
-        <p><small>Types: </small></p>
-        <ul>
-            ${data.types
-              .map((i) => {
-                return `<li><p>${captialize(i.type.name)}</p></li>`;
-              })
-              .join("")}
+  let pokeCardHTML = `
+  <article class="max-w-60 p-4 border rounded-lg bg-white shadow-xl relative bottom-0 group-hover:bottom-1 transition-all">
+    <section class="flex justify-between">
+      <div class="p-1">
+        <h2 class="text-xl font-semibold pb-1">${captialize(data.species.name)}</h2>
+        <ul class="flex gap-1">
+          ${data.types
+            .map((i) => {
+              return `<li class="text-xs text-white px-1 py-1 bg-gray-700 rounded-md">${captialize(i.type.name)}</li>`;
+            })
+            .join("")}
         </ul>
+      </div>
+      <div>
+          <img class="relative left-0 bottom-0 group-hover:left-1 group-hover:bottom-1 transition-all" src="${data.sprites.front_default}" alt="${data.species.name}" />
+      </div>
     </section>
-    <div>
-        <img src="${data.sprites.front_default}" alt="${data.species.name}" />
-    </div><p>${data.flavor}</p>`;
+    <p>${data.flavor}</p>
+    </article>`;
+
+  newItem.classList = 'group peer flex justify-center'
 
   newItem.innerHTML = pokeCardHTML;
 
@@ -78,4 +85,4 @@ e.lucky.addEventListener("click", async () => {
 pokeQuery("ditto");
 for (let i = 0; i < 11; i++) {
   pokeQuery(Math.floor(Math.random() * 1025));
-}
+}/**/
